@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px; 
+  background-color: #0e8d6f;
+}
+
+nav button {
+  margin-left: 10px;
+  color: black;
+}
+nav span, nav button {
+  margin-right: 10px;
+  font-size: bold;
+}
+
+nav span {
+  display: flex;
+  align-items: center;
+}
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:#b1c5a4;
+}
+.form.signup h2,
+form.login h2{
+  margin-bottom: 20px;
+
+}
+form.signup input,
+form.login input {
+  width: 400px;
+  max-width: 400px;
+  height: 30px;
+  border-radius: 10px;
+  align-self: center;
+  margin-bottom: 20px;
+}
+form.login button,
+form.signup button {
+  width: 100px;
+  font-size: 14px;
+  background-color: #409895;
+  border-radius: 10px;
+  padding: 8px 16px;
+  align-self: center; 
+  margin: 0 auto; 
+}
+.tasklist {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tasklist h2 {
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.tasklist input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.tasklist button {
+  padding: 10px 20px;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tasklist button:hover {
+  background-color: #0e8d6f;
+}
+
+.tasklist ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tasklist li {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.tasklist input[type="checkbox"] {
+  margin-right: 10px;
+}
+.tasklist span {
+  margin-right: 20px;
+}
+.tasklist button.edit {
+  margin-right: 10px; /* Add margin-right to create space */
+}
+
+.tasklist button.delete {
+  margin-left: 10px;
+}
+
+
