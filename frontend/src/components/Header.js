@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function Header() {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem('email');
+    const storedUsername = localStorage.getItem("email");
     if (storedUsername) {
       setUsername(storedUsername);
     }
-  }, []); //string that gets the user's email that get posted in the header when they are loggedin
+  }, []); //string that gets the user's email that get posted in the header when they are logged in
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('email');
-    window.localStorage.removeItem("isLoggedin")
-    window.location.href = '/login'; 
-    //remove the token, email , and isLoggedin when clicked to log out the user and navigates them to log in page
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    window.localStorage.removeItem("isLoggedin");
+    window.location.href = "/login";
+    //remove the token, email , and isLoggedin, log outs the user and navigates them to log in page
   };
 
   return (

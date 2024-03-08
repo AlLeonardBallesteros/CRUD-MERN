@@ -16,6 +16,7 @@ nav {
   justify-content: space-between;
   padding: 10px; 
   background-color: #0e8d6f;
+  width: auto;
 }
 
 nav button {
@@ -121,11 +122,15 @@ form.signup button {
   margin-right: 20px;
 }
 .tasklist button.edit {
-  margin-right: 10px; /* Add margin-right to create space */
+  margin-right: 10px;
 }
 
 .tasklist button.delete {
   margin-left: 10px;
 }
 
-
+@media only screen and (max-width: 600px) {
+  nav button {
+    margin-left: 10px; /* Adjust margin-left for smaller screens */
+  }
+}

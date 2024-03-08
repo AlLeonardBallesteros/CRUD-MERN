@@ -10,7 +10,7 @@ const auth  = require('./controllers/userController');
 const requireAuth = require('./middleware/requireAuth');
 const app = express()
 
-app.use(cors())
+app.use(cors()) 
 // middleware
 app.use(express.json())
 
@@ -18,7 +18,9 @@ app.use((req, res, next) => {
   console.log(req.path, req.method)
   next()
 })
-
+app.get('/', (req, res) => {
+  res.send('check')
+})
 // routes
 // GET all tasks
 app.get('/get-tasks', requireAuth, tasks.gettasks) 
