@@ -1,54 +1,34 @@
-//loading environment variables from a .env file
-require('dotenv').config()
 // Import required libraries
-const express = require('express')
-const mongoose = require('mongoose')
+const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
 
-const tasks  = require('./controllers/tasksController');
-const auth  = require('./controllers/userController');
-const requireAuth = require('./middleware/requireAuth');
-const app = express()
+const quizController = require('./controllers/quizController');
 
-app.use(cors()) 
-// middleware
-app.use(express.json())
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-app.use((req, res, next) => {
-  console.log(req.path, req.method)
-  next()
-})
+
 app.get('/', (req, res) => {
-  res.send('check')
-})
-// routes
-// GET all tasks
-app.get('/get-tasks', requireAuth, tasks.gettasks) 
-// POST a new task
-app.post('/create-task', requireAuth, tasks.createtask) 
+  res.send('check');
+});
+ 
 
-// DELETE a task
-app.delete('/task-delete/:id', requireAuth, tasks.deletetask) 
-
-// UPDATE a task
-app.patch('/update-task/:id', requireAuth, tasks.updatetask)
-
-//auth
-//login
-app.post('/login', auth.loginUser)
-
-// signup route
-app.post('/signup', auth.signupUser)
+app.post('/saveQuiz', quizController.saveQuizSettings);
 
 
-// connect to db
-mongoose.connect(process.env.MONGO_URI)
+
+// Connect to the database
+const MONGO_URI = 'mongodb+srv://alleonardballesteros595:xQFmz8v2CM68gNDG@cluster0.mkkxs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Replace with your MongoDB URI
+const PORT = 4000; // Replace with your desired port number
+
+mongoose.connect(MONGO_URI)
   .then(() => {
-
-    app.listen(process.env.PORT, () => {
-      console.log('connected to db & listening on port', process.env.PORT)
-    })
+    app.listen(PORT, () => {
+      console.log('Connected to db & listening on port', PORT);
+    });
   })
   .catch((error) => {
-    console.log(error)
-  })
+    console.log(error);
+  });
